@@ -44,19 +44,22 @@ answer1.appendChild(textNode);
 
 (function () {
 
+
+// Created a new array for priceFilter variable's items between $14 and $18  
+var itemPrice = [];
+
+
+// Find Items with Prices between $14 and $18 function 
 var priceFilter = items.filter( function (singleItem) {
   if (singleItem.price > 14 && singleItem.price < 18) {
-    return singleItem;
+    return itemPrice.push(singleItem.title);
   };
 });
+//console.log(priceFilter);
 
-var filteredResult = priceFilter.map( function (name) {
-  return name.title;
-})
-
-var answer2 = document.querySelector('#answer2');
-var textNode = document.createTextNode(filteredResult);
-answer2.appendChild(textNode);
+// Grabbed the ID answer2 and placed itemPrice array's elements with break tags
+document.getElementById('answer2').innerHTML = 
+itemPrice[0] + '</br>' + itemPrice[1] + '</br>' + itemPrice[2]; 
 
 
 }()); 
@@ -68,25 +71,34 @@ answer2.appendChild(textNode);
 
 (function () {
 
+//Filter out the currrency code with GBP
 var currencyPicker = items.filter( function (currencyItem) {
   if (currencyItem.currency_code === "GBP") {
     return currencyItem;
-  }
-})
+  };
+});
 
+//Filter out the item title 
 var filteredName = currencyPicker.map( function (itemName) {
   return itemName.title;
 });
 
+//Filter out the item price
 var filteredCurrency = currencyPicker.map( function (prices) {
   return  prices.price;
 });
 
+//Combine filteredName and filteredCurrency with text and pound sign
 var namePrice = filteredName + " costs " + '\u00A3' + filteredCurrency;
+//console.log(namePrice);
 
-
+//Point to the element that is being targeted
 var answer3 = document.querySelector('#answer3');
+
+//Create text node for the DOM
 var textNode = document.createTextNode(namePrice);
+
+//Append textnode to the element
 answer3.appendChild(textNode);
 
 }());
@@ -97,19 +109,24 @@ answer3.appendChild(textNode);
 
 (function () {
 
+//Filter out materials made of wood
 var woodItems = items.filter( function (item) {
     return item.materials.indexOf('wood') !== -1;
   });
+//console.log(woodItems);
 
-var answer4 = document.querySelector('#answer4'); 
+//Map out the titles and combine with text
+var itemTitle = woodItems.map( function (name) {
+  return name.title + " is made of wood";
+});
+//console.log(itemTitle);
 
-woodItems.filter( function (a) {
-    var textNode = document.createTextNode(a.title);
-    var nextLine = document.createElement('br');  
-    answer4.appendChild(textNode);
-    answer4.appendChild(nextLine);   
+//Apply the list of items with innerHTML
+document.getElementById('answer4').innerHTML = 
+itemTitle[0] + '</br>' + itemTitle[1] + '</br>' +
+itemTitle[2] + '</br>' + itemTitle[3] + '</br>' + 
+itemTitle[4];
 
-});  
 }());
 
 
@@ -121,31 +138,40 @@ woodItems.filter( function (a) {
 
 (function () {
 
+//Push items.material here
 var listofMaterials=[];
 
-var materials = items.filter(function(item){
+//Map out all materials more than 8
+var material = items.map(function(item){
   if (item.materials.length >= 8){
-       listofMaterials.push(item);
+       return listofMaterials.push(item);
   };
 });
+// console.log(listofMaterials);
 
-listofMaterials.filter(function(item){
+//Point to element that needs to be targeted
+var answer5 = document.querySelector('#answer5');
+
+//Function to show title, number of items, and items it is made of  
+listofMaterials.map(function(item){
  var materialList = item.materials.length;
  var text = " has " + materialList + " materials:"
-
- var answer5 = document.querySelector('#answer5');
-
+ var breakLine = document.createElement('br');
  var title = document.createTextNode(item.title);
- var textNode = document.createTextNode(text);
- var newLine =document.createElement('br');
+ var textTitle = document.createTextNode(text);
+ var newLine = document.createElement('br');
+ var newLine2 = document.createElement('br');
+ answer5.appendChild(breakLine);
  answer5.appendChild(title);
- answer5.appendChild(textNode);
+ answer5.appendChild(textTitle);
  answer5.appendChild(newLine);
+ answer5.appendChild(newLine2);
 
- item.materials.filter(function(a){
- var textNode = document.createTextNode(a);
+//Function to show the list of items of materials
+item.materials.map(function(a){
+ var fullList = document.createTextNode(a);
  var newLine =document.createElement('br');
- answer5.appendChild(textNode);
+ answer5.appendChild(fullList);
  answer5.appendChild(newLine);
  
  });
@@ -160,17 +186,24 @@ listofMaterials.filter(function(item){
 
 (function () {
 
+//Filter items made by "i_did"
 var soldbySeller = items.filter( function (items) {
   if (items.who_made === "i_did") {
     return items;
   }
 }); 
+// console.log(soldbySeller);
 
+//Combine soldbySeller with text
 var result = soldbySeller.length + " were made by their sellers";
 
-
+//Point to element being targeted
 var answer6 = document.querySelector('#answer6');
+
+//Create node for the DOM
 var textNode = document.createTextNode(result);
+
+//Append textNode to element
 answer6.appendChild(textNode);
 
 }());

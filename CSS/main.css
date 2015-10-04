@@ -1,8 +1,58 @@
-.logo h1 {
-  color: #4C4A50;
-  font-family: 'Arial', sans-serif;
-  font-weight: 100;
-  font-size: 25px; }
+header {
+  height: 180px; }
+  header .logo
+h1 {
+    color: #4C4A50;
+    font-family: "Lora", serif;
+    font-weight: 100;
+    font-size: 32px;
+    margin: 50px 0 26px 60px; }
+  header .banner img {
+    width: 1225px;
+    margin: 0 0 0 19px; }
 
 .container {
-  background: #EEEEEE; }
+  background: #EEEEEE;
+  margin: 0 19px;
+  padding: 43px 0 43px 0; }
+  .container .answerBox {
+    margin-bottom: 110px; }
+  .container h2 {
+    text-align: center;
+    color: #4C4A50;
+    font-family: "Lora", serif;
+    margin-left: 60px;
+    font-size: 25px; }
+  .container h2 span {
+    margin-left: 4px; }
+  .container h2.background {
+    display: table;
+    margin-left: 78px; }
+    .container h2.background:before, .container h2.background:after {
+      border-top: 1px solid #E6E6E6;
+      content: '';
+      display: table-cell;
+      position: relative;
+      top: 0.5em;
+      width: 45%; }
+    .container h2.background:before {
+      right: 1.5%; }
+    .container h2.background:after {
+      left: 1.5%; }
+  .container p {
+    text-align: center;
+    line-height: 1.5;
+    color: #4C4A50;
+    font-family: "Arial", sans-serif;
+    margin: 60px 0 0 0; }
+
+footer {
+  background: #4B494F;
+  padding: 20px;
+  margin: 0 19px; }
+  footer p {
+    color: #89898A;
+    font-family: "Roboto Slab", serif;
+    text-align: center; }
+  footer p span {
+    margin-top: 20px; }
