@@ -1,9 +1,10 @@
 // Colors and Font Styles
 $textColor: #4C4A50;
-$fontStyling: 'Arial', sans-serif;
+$etsyColor: #F56400;
 $lightGrayText: #89898A;
 $hfont: 'Lora', serif;
-$footFont: 'Roboto Slab', serif;
+$robotoFont: 'Roboto Slab', serif;
+$fontSize: 30px;
 
 
 
@@ -15,7 +16,7 @@ header {
 
   .logo
       h1 {
-      color: $textColor;
+      color: $etsyColor;
       font-family: $hfont;
       font-weight: 100;
       font-size: 32px;
@@ -25,6 +26,7 @@ header {
   .banner img {
     width: 1225px;
     margin: 0 0 0 19px;
+    opacity: 0.6;
   }
 }
 // Main Section of Page 
@@ -39,7 +41,7 @@ header {
 
     h2 {
       text-align: center;
-      color: $textColor;
+      color: $etsyColor;
       font-family: $hfont;
       margin-left: 60px;
       font-size: 25px;
@@ -65,10 +67,11 @@ header {
 // Answers to Questions 
     p {
       text-align: center;
-      line-height: 1.5;
+      line-height: 2;
       color: $textColor;
-      font-family: $fontStyling;
+      font-family: $robotoFont;
       margin: 60px 0 0 0;
+      font-size: 16px;
     }
 }
 
@@ -79,9 +82,10 @@ footer {
   margin: 0 19px;
 // Copyright Text and Name   
     p {
-      color: $lightGrayText;
-      font-family: $footFont;
+      color: $etsyColor;
+      font-family: $robotoFont;
       text-align: center;
+      opacity: 0.5;
     }
     p span {
       margin-top: 20px;
